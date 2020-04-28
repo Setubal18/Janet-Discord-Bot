@@ -12,3 +12,5 @@ quemsoueu = 'Eu sou Janet,' \
             'oque eu não souber ' \
             'ou fazer entre em contato com meu criador.' \
             'Para saber mais sobres meus comandos use $help.'
+
+seuConvite = 'Seu convite está aqui:'
