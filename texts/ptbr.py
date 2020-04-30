@@ -2,8 +2,8 @@ from typing import List
 
 saudacoes: List[str] = [
 	'Olá ! Sou Janet Assistente deste grupo, qualquer coisa só me chamar',
-	'Olá, eu sou a Janet !',
-	'Olá !!!! Sou a Janet prazer em te conhecer'
+	'Olá, eu sou a Janet qualquer coisa só chamar',
+	'Oi !!!! Sou a Janet prazer em te conhecer, se precisar de algo me falar'
 ]
 
 quemsoueu = 'Eu sou Janet,' \
@@ -14,3 +14,4 @@ quemsoueu = 'Eu sou Janet,' \
             'Para saber mais sobres meus comandos use $help.'
 
 seuConvite = 'Seu convite está aqui:'
+
