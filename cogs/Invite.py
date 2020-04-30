@@ -29,6 +29,10 @@ class Invite(commands.Cog):
 		else:
 			await ctx.author.send(f'{seuConvite} {invitelink}')
 
+	async def cog_command_error(self, ctx, error):
+		if isinstance(error, Exception):
+			await ctx.send(f'Formate melhor os parâmetros que você quer me passar')
+
 
 def setup(bot):
 	bot.add_cog(Invite(bot))
