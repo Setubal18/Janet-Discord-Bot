@@ -8,6 +8,12 @@ load_dotenv(dotenv_path=env_path)
 
 token = os.getenv('TOKEN')
 url_janet_photo = os.getenv('URL_JANET_PHOTO')
+wiki_photo = os.getenv('WIKI_PHOTO')
 
 # cogs
-cogs = ['cogs.Greetings', 'cogs.Invite', 'cogs.Pet']
+cogs = [
+	'cogs.Greetings',
+	'cogs.Invite',
+	'cogs.Pet',
+	'cogs.Wiki'
+]
