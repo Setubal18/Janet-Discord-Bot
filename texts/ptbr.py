@@ -14,4 +14,3 @@ quemsoueu = 'Eu sou Janet,' \
             'Para saber mais sobres meus comandos use $help.'
 
 seuConvite = 'Seu convite está aqui:'
-

@@ -24,7 +24,8 @@ class Pet(commands.Cog):
 		url = get_image_url(1)
 		embed = create_embed(
 			autorName='Dog',
-			url=url,
+			icon_url=url,
+			img_url=url,
 			footer='Dog'
 		)
 		await ctx.send(embed=embed)
@@ -34,7 +35,8 @@ class Pet(commands.Cog):
 		url = get_image_url(2)
 		embed = create_embed(
 			autorName='Cats',
-			url=url,
+			icon_url=url,
+			img_url=url,
 			footer='Cats'
 		)
 		await ctx.send(embed=embed)
