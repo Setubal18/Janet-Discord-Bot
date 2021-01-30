@@ -1,5 +1,5 @@
 # Janet Discord Bot
-### Versão 1.0.0
+### Versão 1.0.1
 Um bot do _Discord_ chamado janet 
 (E sim ela é baseada na serie de televisão "Good Place")
 
