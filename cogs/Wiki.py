@@ -40,6 +40,10 @@ class Wiki(commands.Cog):
 			embed = formatWikiaEmbed(page, wiki_photo)
 		return await ctx.send(embed=embed)
 
+	async def cog_command_error(self, ctx, error):
+		if isinstance(error, Exception):
+			await ctx.send(f'Desculpe não entendi oque você quer que eu procure 😢')
+
 
 def setup(bot):
 	bot.add_cog(Wiki(bot))

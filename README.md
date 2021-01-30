@@ -28,4 +28,4 @@ Para criar uma nova Cog utilize o comando `python -m discord newcog [nome da cog
 
 ### Dependências 
  Todos as dependências necessárias estão no requiriments.txt, 
- para baixa-las basta `pip install -r requirements.txt`.
+ para baixa-las basta `pip install -r requirements.txt`."
