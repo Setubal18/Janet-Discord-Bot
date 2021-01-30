@@ -38,7 +38,7 @@ class Greetings(commands.Cog):
 
 	async def cog_command_error(self, ctx, error):
 		if isinstance(error, commands.errors.BadArgument):
-			await ctx.send(f'Tente dar olá para alguém que seja um Humano')
+			await ctx.send(f'Tente dar olá para alguém que seja um humano')
 
 
 def setup(bot):

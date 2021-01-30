@@ -1,7 +1,6 @@
 from datetime import datetime
 
 import discord
-
 from config import url_janet_photo
 
 
@@ -39,5 +38,46 @@ def create_embed(**kwargs):
 		embed.timestamp = datetime.now()
 	except KeyError:
 		pass
+
+	return embed
+
+
+def formatWikiaEmbed(page, wiki_photo):
+	paragraph = page.summary.split('\n')[0]
+	font = f'\n [Fonte]({page.url})'
+	paragraph = paragraph + font
+	embed = create_embed(
+		autorName='Wiki',
+		icon_url=wiki_photo,
+		title=page.title,
+		fields=[
+			{
+				'name': page.title,
+				'value': paragraph,
+				'inline': False
+			}
+		],
+		footer='By Janet'
+	)
+
+	return embed
+
+
+def listEmbed(**kwargs):
+	list: list = []
+	value = ''
+	for item in kwargs['list']:
+		if len(value) <= 1000:
+			value += f'- {item}\n'
+		else:
+			list.append({'name': kwargs['listTitle'], 'value': value, 'inline': False})
+			value = ''
+	embed = create_embed(
+		autorName=kwargs['autorName'],
+		icon_url=kwargs['photo'],
+		title=kwargs['title'],
+		fields=list,
+		footer='By Janet'
+	)
 
 	return embed

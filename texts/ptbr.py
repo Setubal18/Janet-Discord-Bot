@@ -14,3 +14,14 @@ quemsoueu = 'Eu sou Janet,' \
             'Para saber mais sobres meus comandos use $help.'
 
 seuConvite = 'Seu convite está aqui:'
+
+wait: List[str] = [
+	'Um momento, vou pegar para você !',
+	'Deixa ver se eu consigo achar...',
+	'Aguarde por favor...',
+	'Espere for favor !',
+]
+
+ambiguities = 'Ambiguações'
+ambiguitiesDescriptions = 'Parece que eu encontrei mais de um tópico, ' \
+                          'por favor especifique qual você quer'

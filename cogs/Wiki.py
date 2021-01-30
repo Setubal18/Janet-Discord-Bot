@@ -1,39 +1,44 @@
 # -*- coding: utf-8 -*-
-
+from bs4 import BeautifulSoup
 from discord.ext import commands
-from utils.embed import create_embed
+from utils.embed import formatWikiaEmbed, listEmbed
 from config import wiki_photo
+from texts.ptbr import wait, ambiguities, ambiguitiesDescriptions
+from wikipedia import exceptions, page
+
+import random
 import wikipedia
 import discord
 
 
 class Wiki(commands.Cog):
-	"""Pesquisa alguma informação na wikia"""
+	'''Pesquisa alguma informação na wikia'''
 
 	def __init__(self, bot):
 		self.bot = bot
 
 	@commands.group(name='wiki', aliases=['pesquisar', 'search', 'find'])
 	async def wiki(self, ctx):
-		page = wikipedia.page(ctx.subcommand_passed)
-		paragraph = page.summary.split('\n')[0]
-		font = "\n [Fonte]({})".format(page.url)
-		paragraph = paragraph + font
-		embed = create_embed(
-			autorName="Wiki",
-			icon_url=wiki_photo,
-			title=page.title,
-			fields=[
-				{
-					"name": page.title,
-					"value": paragraph,
-					"inline": False
-				}
-			],
-			footer='By Janet'
-		)
-
-		await ctx.send(embed=embed)
+		global page, embed
+		await ctx.send(random.choice(wait))
+		if ctx.subcommand_passed:
+			try:
+				page = page(ctx.subcommand_passed)
+				embed = formatWikiaEmbed(page, wiki_photo)
+			except exceptions.DisambiguationError as e:
+				embed = listEmbed(
+					list=e.options,
+					listTitle=f'{ambiguities} para {ctx.subcommand_passed}',
+					autorName='wiki',
+					photo=wiki_photo,
+					title=ambiguities,
+					discription=ambiguitiesDescriptions
+				)
+				return await ctx.send(embed=embed)
+		else:
+			page = page(wikipedia.random().replace(' ', '_'))
+			embed = formatWikiaEmbed(page, wiki_photo)
+		return await ctx.send(embed=embed)
 
 
 def setup(bot):
