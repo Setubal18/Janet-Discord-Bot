@@ -8,16 +8,16 @@ Bot ainda está em desenvolvimento sem data prévia para lançamento.
 
 ## Alguns Comandos
 * Saudações
-    * $ola [Nome da pessoa] :  Ela envia um olá para a pessoa    
+    * .hello [Nome da pessoa] :  Ela envia um olá para a pessoa    
 * Convite
-    * $convite : Ela gera um convite para entrar no servidor do discord
+    * .invite : Ela gera um convite para entrar no servidor do discord
 * Wiki
-    * $Wikia [oque vocoê quer pesquisar]: Ela enviara o resultado da sua pesquisa, com base no wikipedia, 
+    * .Wiki [oque vocoê quer pesquisar]: Ela enviara o resultado da sua pesquisa, com base no wikipedia, 
     para consultas com mais de uma palavra subistitua os espaços por '''_'''
 * Pet
-    * $manda [dog ou cat]: Envia uma foto de  um cachorro ou gato
+    * .pet [dog ou cat]: Envia uma foto de  um cachorro ou gato
 * Help
-    * $help : mensagem de ajuda com os comandos disponíveis
+    * .help : mensagem de ajuda com os comandos disponíveis
 
 ## Dev 
 ### Run Local
