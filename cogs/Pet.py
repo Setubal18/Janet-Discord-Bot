@@ -11,7 +11,7 @@ class Pet(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
-	@commands.group(name='manda', aliases=['envia', 'send'])
+	@commands.group(name='pet', aliases=['pets', 'animais'])
 	async def manda(self, ctx):
 		petsPerm = ['cats', 'dogs']
 		if ctx.subcommand_passed is None:

@@ -15,5 +15,6 @@ cogs = [
 	'cogs.Greetings',
 	'cogs.Invite',
 	'cogs.Pet',
-	'cogs.Wiki'
+	'cogs.Wiki',
+	'cogs.Help'
 ]
