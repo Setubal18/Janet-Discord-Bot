@@ -7,7 +7,7 @@ from discord.ext import commands
 
 class Bot(commands.Bot):
 	def __init__(self, **kwargs):
-		super().__init__(command_prefix=commands.when_mentioned_or('$'), help_command=None, **kwargs)
+		super().__init__(command_prefix=commands.when_mentioned_or('.'), help_command=None, **kwargs)
 		for cog in config.cogs:
 			try:
 				self.load_extension(cog)
