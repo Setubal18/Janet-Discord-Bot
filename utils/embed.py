@@ -13,6 +13,16 @@ def create_embed(**kwargs):
 		embed.set_author(name='Janet', icon_url=url_janet_photo)
 
 	try:
+		embed.title = kwargs['title']
+	except:
+		pass
+
+	try:
+		embed.description = kwargs['description']
+	except:
+		pass
+
+	try:
 		embed.set_image(url=kwargs['img_url'])
 	except KeyError:
 		pass

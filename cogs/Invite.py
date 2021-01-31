@@ -14,7 +14,7 @@ class Invite(commands.Cog):
 		self.bot = bot
 
 	@commands.command(
-		name='convite',
+		name='invite',
 		help='Cria um convite para entrar na guilda. '
 		     'Pode Receber os parâmetros: '
 		     'Quantidade de usos, se não e unico se quer receber em DM')
