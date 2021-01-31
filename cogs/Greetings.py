@@ -24,7 +24,7 @@ class Greetings(commands.Cog):
 			await member.create_dm()
 			await member.dm_channel.send(random.choice(saudacoes))
 
-	@commands.command(name='ola', help='De olá para alguém')
+	@commands.command(name='hello', help='De olá para alguém')
 	async def hello(self, ctx, member: discord.Member = None):
 		member = member or ctx.author
 		if member is None or ctx.author.id != member.id:
@@ -32,7 +32,7 @@ class Greetings(commands.Cog):
 		else:
 			await ctx.send(f'Olá')
 
-	@commands.command(name='apresentacao', help='Apresentação da Janet')
+	@commands.command(name='greetings', help='Apresentação da Janet')
 	async def apresentation(self, ctx):
 		await ctx.send(quemsoueu)
 
