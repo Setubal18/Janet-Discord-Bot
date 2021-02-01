@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
-from bs4 import BeautifulSoup
 from discord.ext import commands
 from utils.embed import formatWikiaEmbed, listEmbed
 from config import wiki_photo
 from texts.ptbr import wait, ambiguities, ambiguitiesDescriptions
-from wikipedia import exceptions, page
-
-import random
 import wikipedia
+import random
 import discord
 
 
@@ -23,9 +20,11 @@ class Wiki(commands.Cog):
 		await ctx.send(random.choice(wait))
 		if ctx.subcommand_passed:
 			try:
-				page = page(ctx.subcommand_passed)
+				toSearch = ctx.subcommand_passed.strip()
+				toSearch = toSearch.replace('_', '%20')
+				page = wikipedia.page(toSearch)
 				embed = formatWikiaEmbed(page, wiki_photo)
-			except exceptions.DisambiguationError as e:
+			except wikipedia.exceptions.DisambiguationError as e:
 				embed = listEmbed(
 					list=e.options,
 					listTitle=f'{ambiguities} para {ctx.subcommand_passed}',
@@ -35,14 +34,21 @@ class Wiki(commands.Cog):
 					discription=ambiguitiesDescriptions
 				)
 				return await ctx.send(embed=embed)
+			except wikipedia.exceptions.PageError as e:
+				print(e)
+				return await ctx.send(f'Desculpe não encontrei oque você procura')
 		else:
-			page = page(wikipedia.random().replace(' ', '_'))
+			randomSearch = wikipedia.random()
+			randomSearch.replace(' ', '%20')
+			print(randomSearch)
+			page = wikipedia.page(randomSearch)
 			embed = formatWikiaEmbed(page, wiki_photo)
 		return await ctx.send(embed=embed)
 
 	async def cog_command_error(self, ctx, error):
+		print(error)
 		if isinstance(error, Exception):
-			await ctx.send(f'Desculpe não entendi oque você quer que eu procure 😢')
+			await ctx.send(f'Ops... Algo deu errado')
 
 
 def setup(bot):
