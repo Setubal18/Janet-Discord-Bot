@@ -54,6 +54,7 @@ def create_embed(**kwargs):
 
 def formatWikiaEmbed(page, wiki_photo):
 	paragraph = page.summary.split('\n')[0]
+	print(len(paragraph))
 	font = f'\n [Fonte]({page.url})'
 	paragraph = paragraph + font
 	embed = create_embed(
